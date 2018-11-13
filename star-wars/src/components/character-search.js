@@ -22,6 +22,9 @@ export class CharacterSearch extends React.Component {
 
     search(e) {
         e.preventDefault();
+        if (this.input.value.trim() === '') {
+            return;
+        }
         this.props.dispatch(searchCharacters(this.input.value));
     }
 
