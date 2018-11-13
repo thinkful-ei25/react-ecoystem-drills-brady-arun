@@ -25,8 +25,9 @@ export function EmailList(props) {
 }
 
 const mapStateToProps = (state, props) => {
-    const folder = state[props.folderId];
+    const folder = state[props.folderId || props.match.params.folderId];
     return {
+        
         folderName: folder.name,
         emailList: Object.keys(folder.emails).map(emailId =>
             folder.emails[emailId]
